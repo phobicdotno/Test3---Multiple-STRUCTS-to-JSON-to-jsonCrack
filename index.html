@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Beckhoff STRUCT to JSON by chatgpt & phobic</title>
+    <link href='https://phobic.no/chatgpt/test2/Mona-Sans.woff2' rel='stylesheet' type='text/css'>
+    <style>
+            * {
+        font-family: 'Mona-Sans', sans-serif;
+        font-style: bold;
+    }
+    h1, h2 {
+        font-family: 'Mona-Sans', sans-serif;
+    }
+    body {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+    }
+    body > * {
+        width: 70%;
+        left: 15%;
+        right: 15%;
+    }
+    .textarea {
+        height: 200px;
+        width: 95%;
+    }
+    .jsoncrack {
+        height: 500px;
+    }
+    .padding {
+        padding: 20px;
+    }
+    .margin {
+        margin: 20px;
+    }
+    .textareas-container {
+    display: flex;
+    flex-direction: row;
+    }
+    .textarea-left, .textarea-right {
+        flex-basis: 50%;
+    }
+    // Container
+    .tabs-container {
+    display: flex;
+    justify-content: space-between; /* aligns the tabs along the horizontal axis and distribute them evenly */
+    }
+    .tab {
+        padding: 8px 16px;
+        border: 1px solid #ccc;
+        margin-right: 8px;
+        cursor: pointer;
+        display: inline-block; /* changes the layout of each tab to an inline element */
+    }
+    .tab:hover {
+        background-color: #f2f2f2;
+    }
+    #file-input {
+        padding: 16px 16px;
+    }
+    </style>
+  </head>
+  <body>
+    <div class="margin"><h2>Beckhoff Multiple STRUCT to JSON</h2>
+    by chatgpt & phobic</div>
+
+    <input type="file" id="file-input" onchange="loadFilesMultiple()" multiple>
+
+    <div class="tabs-container"></div>
+    <div class="textareas-container">
+        <textarea class="textarea-left padding margin height textarea" id="file-text"></textarea>
+        <textarea class="textarea-right padding margin height textarea" id="json-text" ></textarea>
+    </div>
+    <script>
+        let tabs = document.querySelectorAll(".tabs-container .tab");
+        tabs.forEach(function(tab, index) {
+            tab.addEventListener("click", function() {
+                // Switch the textareas based on the file index
+                let fileIndex = parseInt(this.innerHTML.match(/\d+/)[0]) - 1;
+                //...
+            });
+        });
+    </script>
+    <button class="padding" id="copy-button" onclick="copyCode()">Copy Code</button>
+
+    <iframe class="margin jsoncrack" id="jsoncrackEmbed" src="https://jsoncrack.com/widget"></iframe>
+
+    <script src="loadFilesMultiple.js"></script>
+    <script src="parseMultipleXMLtoJSON.js"></script>
+    <script src="textToJSON.js"></script>
+    <script src="sendToEmbed.js"></script>
+    <!--   loadFilesMultiple =>  parseMultipleXMLtoJSON =>  textToJSON  =>  sendToEmbed   -->
+
+    </body>
+</html>
