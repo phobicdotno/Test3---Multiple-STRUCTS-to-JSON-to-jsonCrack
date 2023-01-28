@@ -53,6 +53,13 @@ const json2 = {
   }
 }
 
+/*This code iterates through the keys in json2 and checks if the corresponding key in json1 is an object.
+If it is, it checks if the "type" key in the object matches the current key in json2.
+If it does, it uses the spread operator to merge the value of the matching key in json2 into the value
+of the "type" key in json1. If the key in json1 is not an object or if the "type" key does not match, 
+the function recursively calls itself with the value of the key in json1 and the current key in json2. 
+Finally, the modified json1 is returned. */
+
 function compareJSON(json1, json2, path = []) {
     for (let key in json2) {
         if (typeof json1 === "object") {
